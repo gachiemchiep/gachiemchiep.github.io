@@ -1,0 +1,22 @@
+# main links
+main:
+  - title: "About"
+    url: /about/
+  - title: "Posts"
+    url: /categories/
+
+docs:
+  - title: Sitemap
+    children:
+      - title: "Post by year"
+        url: /year-archive/
+      - title: "Post by tag"
+        url: /tags/
+      - title: "Post by category"
+        url: /categories/
+  - title: "Summary of Posts"
+    children: 
+      - title: "Vision Sensor ralated posts"
+        url: /categories/vision
+      - title: "Useful CheatSheet"
+        url: /categories/cheatsheet/
