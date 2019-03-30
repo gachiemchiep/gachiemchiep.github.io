@@ -1,6 +1,6 @@
 ---
-title: "A post with full tags. Use this as base for post"
-excerpt: "Template for post."
+title: "Quick glance at Ampere eMAG processer"
+excerpt: "Quick glance at Ampere eMAG processer."
 categories: 
   - template
 tags: 
