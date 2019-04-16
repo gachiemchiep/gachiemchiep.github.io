@@ -115,6 +115,10 @@ author:
     - label: "reddit"
       icon: "fab fa-fw fa-reddit"
       url: "https://reddit.com/gachiemchiep"
+    - label: "List of post by tag"
+      url: /tags/
+    - label: "List of post by categories"
+      url: /categories/
 
 # Site Footer
 footer:
