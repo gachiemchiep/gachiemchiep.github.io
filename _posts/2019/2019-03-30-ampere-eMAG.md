@@ -1,10 +1,11 @@
 ---
 title: "Quick glance at Ampere eMAG processer"
 excerpt: "Quick glance at Ampere eMAG processer."
+published: true
 categories: 
-  - template
+  - arm
 tags: 
-  - Jekyll
+  - server  
 comments: true
 toc: true
 support: true
