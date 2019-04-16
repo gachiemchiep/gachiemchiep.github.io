@@ -80,14 +80,14 @@ Applying polarization imaging require special camera, lense to capture polarizat
 
 ![Photography](/assets/images/2019/Polarization-Sensor-Crosstalk-1.gif)
 
-To solve those above problems, Sony introduce the first ever polarization sensor in 2018 [source](https://www.ptgrey.com/sony-polarization) . This show the leading position that they have in vision industry.
+To solve those above problems, Sony introduce the first ever polarization sensor **IMX250MZR** in 2018 [source](https://www.ptgrey.com/sony-polarization) . This show the leading position that they have in vision industry.
 
 **So how Sony's polarization sensor solve those 2 above disadvantages ?**
 
 1. Polarizing filter is embedded directly inside vision sensor so we don't need separate filter.
 2. polarizer is embedded below the micro lens so noise is completly separated.
 
-![Photography](/assets/images/2019/Polarization-Sensor-Crosstalk-2.gif)
+![Photography](/assets/images/2019/polarization-sensor-no-crosstalk-2.gif)
 
 ## Conclusion
 
@@ -109,6 +109,7 @@ To solve those above problems, Sony introduce the first ever polarization sensor
 9. [08_Stage1_1430_LUCID](https://ibv.vdma.org/documents/256550/27019077/2018-11-08_Stage1_1430_LUCID.pdf/
 )
 10. [Lucid vision lab white paper]( https://dce9ugryut4ao.cloudfront.net/LUCID-Going-Polarized-White-Paper.pdf)
+11. [sony polarization sensor](https://www.sony-semicon.co.jp/products_en/IS/sensor5/index.html)
 
 
 
