@@ -157,6 +157,7 @@ These below picture are capture by using **IMX250MZR** sensor. Personally, it's 
 )
 10. [Lucid vision lab white paper]( https://dce9ugryut4ao.cloudfront.net/LUCID-Going-Polarized-White-Paper.pdf)
 11. [sony polarization sensor](https://www.sony-semicon.co.jp/products_en/IS/sensor5/index.html)
-
+12. [Study of birefringence alterations during
+optical clearing of biological tissues](https://www.oulu.fi/sites/default/files/206/Borovkova_Birefringence.pdf)
 
 
