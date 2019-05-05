@@ -4,7 +4,6 @@ excerpt: "Some quick notes when learning ROS."
 categories: 
   - ROS
 tags: 
-  - TODO
   - tutorial
 comments: true
 published: true
