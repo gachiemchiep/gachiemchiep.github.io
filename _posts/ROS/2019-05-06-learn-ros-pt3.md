@@ -130,6 +130,9 @@ Our launch file is as follow. Remember that launch file have to be put inside *l
 ROS use the *roslaunch* command to execute launch file. Detail is at [roslaunch](http://wiki.ros.org/roslaunch). In our case the command is as follow.
 
 ```bash
+# Remember to rebuild the package
+catkin_make
+source devel/setup.bash
 # roslaunch package-name launch-file-name.launch
 # add -v to roslaunch for verbosing
 roslaunch tut4 run_tut4.launch
