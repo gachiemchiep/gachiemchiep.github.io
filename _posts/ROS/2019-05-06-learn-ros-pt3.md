@@ -74,6 +74,7 @@ Launch file uses xml syntax. List a syntax and meaning is as follow. See [roslau
   />
   <!-- group = collection of node; have ns=namespace -->
   <group ns="group_name" if="$(arg test1)">
+    <param name="huey" value="red" comment="parameter of group"/>
     <node 
       pkg="package_name"
       type="executable_name"
@@ -86,6 +87,7 @@ Launch file uses xml syntax. List a syntax and meaning is as follow. See [roslau
     >
       <!-- rename the topics that node publish/subcribe to -->
       <remap from="original_name" to="new_name"/>
+      <param name="huey" value="red" comment="parameter of node"/>
     </node>
 
   <group/>
@@ -124,6 +126,8 @@ Our launch file is as follow. Remember that launch file have to be put inside *l
 	</group>
 </launch>
 ```
+
+**Note:** the launch file above will open new terminal window for each node. If we want to open only 1 new window, and add node's console into that window's tab, we should use [tmux](https://github.com/tmuxinator/tmuxinator). This is out of this post's scope.
 
 ## Run launch file
 
