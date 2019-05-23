@@ -3,9 +3,9 @@ title: "Quick glance at Ampere eMAG processer"
 excerpt: "Quick glance at Ampere eMAG processer."
 published: true
 categories: 
-  - arm
+  - news
 tags: 
-  - server  
+  - arm
 comments: true
 toc: true
 support: true

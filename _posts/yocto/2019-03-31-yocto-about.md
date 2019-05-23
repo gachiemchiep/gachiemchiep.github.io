@@ -2,9 +2,10 @@
 title: "A quick glance at yocto"
 excerpt: "yocto summary."
 categories: 
-  - template
+  - tutorial
 tags: 
-  - Jekyll
+  - yocto
+published: true
 comments: true
 toc: true
 support: true
