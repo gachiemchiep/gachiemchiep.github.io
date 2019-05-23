@@ -28,7 +28,7 @@ So in this post, i'll compile opencv 4.1.0 for Ubuntu 18.04, with Cuda, Atlas, p
 
 ## Procedure
 
-### Dependencies
+### Install Dependencies
 
 
 ```bash
