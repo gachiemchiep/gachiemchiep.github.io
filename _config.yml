@@ -292,3 +292,4 @@ defaults:
       sidebar:
         title: ""
         nav: docs
+theme: jekyll-theme-architect

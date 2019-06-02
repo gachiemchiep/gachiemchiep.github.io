@@ -4,8 +4,8 @@ excerpt: "Some notes about Polarization imaging."
 categories: 
   - vision
 tags: 
+  - image_sensor
   - polarization
-  - sensor
 published: true
 comments: true
 toc: true

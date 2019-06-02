@@ -1,12 +1,12 @@
 ---
 title: "Compile OpenCV from source for Ubuntu with Cuda, Atlas"
-excerpt: "Compile OpenCV from source for Ubuntu 18.04 with Cuda 10.1, Atlas."
+excerpt: "Compile OpenCV 4.1.0 from source for Ubuntu 18.04 with Cuda 10.1, Atlas."
 categories:
   - vision
 tags:
   - tutorial
   - opencv
-published: false
+published: true
 comments: true
 toc: true
 support: true
@@ -17,23 +17,23 @@ author: vugia.truong
 # Summary
 
 opencv-python package does not support cuda and atlas.
-So in this post, i'll compile opencv 3.5.6 for Ubuntu 18.04, with Cuda, Atlas, python
+So in this post, i'll compile opencv 4.1.0 for Ubuntu 18.04, with Cuda, Atlas, python
 
 ## Requirement
 
 * OS : Ubuntu 18.04
-* Opencv version : 3.5.6
+* Opencv version : 4.1.0
 * Cuda : 10.1
 * Python : 3.6, Anaconda
 
 ## Procedure
 
-### Dependencies
+### Install Dependencies
 
 
 ```bash
 # 1. Build dependencies
-sudo apt install build-essential libatlas-dev liblapack-devel libtesseract-dev libopenexr-dev ffmpeg libblas-dev make-gui
+sudo apt install build-essential libatlas-dev liblapack-devel libtesseract-dev libopenexr-dev ffmpeg libblas-dev cmake cmake-gui
 
 # 2. Install anaconda
 # Go to https://www.anaconda.com/
@@ -42,55 +42,88 @@ sudo apt install build-essential libatlas-dev liblapack-devel libtesseract-dev l
 # go to https://developer.nvidia.com/cuda-downloads 
 # and do as same as the manual
 
-# 4. Create yor custom python environment
-conda create --name opencv-3.4.5_cu10 python==2.7
-# Need numpy as python dependencies
-source activate opencv-3.4.5_cu10
-pip install numpy
 ```
 
 ### Download source
 
 Download opencv's source code from [opencv's homepage](https://opencv.org/releases/) . 
 And opencv contribution modules' source code from [github](https://github.com/opencv/opencv_contrib). 
-I'll use the 3.4.5 version and put at the following location
+I'll use the 4.1.0 version and put at the following location
 
 ```bash
 ~/opt
-├── opencv-3.4.5
-    ├── opencv-3.4.5                : source code
+├── opencv-4.1.0
+    ├── opencv-4.1.0                : source code
         ├── build                   : build directory
-    ├── opencv_contrib-3.4.5        : source code of contribution modules
+    ├── opencv_contrib-4.1.0        : source code of contribution modules
 
 ```
 
 ### Compiling
 
-Opencv use CMake as default build tools. Personally, changing CMake options is very nuissance
-so for convinient, i used **cmake-gui** tool. 
-To re-procedure the result, you need to download the CMakeCache.txt from [link](/assets/images/opencv/CmakeCache.txt) . 
-Then put **CMakeCache.txt** inside **build** directory and **run cmake-gui** -> **configure** -> **generate** .
-
-TODO : add image later
-
-* Build
+* Create yor custom python environment
 
 ```bash
-make -j6
+conda create --name opencv-4.1.0_cu10 python=2
+# Need numpy as python dependencies
+source activate opencv-4.1.0_cu10
+pip install numpy flake8
 ```
 
-* Linking python
+* Compiling
+
+```bash
+mkdir build
+cd build
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+    -D CMAKE_INSTALL_PREFIX=/usr/local \
+    -D OPENCV_EXTRA_MODULES_PATH=~/opt/opencv-4.1.0/opencv_contrib-4.1.0/modules \
+    -D OPENCV_ENABLE_NONFREE=ON \
+    -D BUILD_EXAMPLES=ON ..\
+    -D BUILD_NEW_PYTHON_SUPPORT=ON \
+    -D INSTALL_PYTHON_EXAMPLES=ON \
+    -D OPENCV_FORCE_PYTHON_LIBS=ON \
+    -D PYTHON_DEFAULT_EXECUTABLE=$(which python) \
+    -D PYTHON_EXECUTABLE=~/miniconda2/envs/opencv-4.1.0_cu10/bin/python \
+    -D PYTHON_LIBRARY=~/miniconda2/envs/opencv-4.1.0_cu10/lib/libpython2.7.so \
+    -D PYTHON_INCLUDE_DIRS=~/miniconda2/envs/opencv-4.1.0_cu10/include \
+    -D PYTHON2_NUMPY_INCLUDE_DIRS=~/miniconda2/envs/opencv-4.1.0_cu10/lib/python2.7/site-packages/numpy \
+    -D WITH_CUDA=ON \
+    -D BUILD_opencv_cudacodec=OFF \
+    -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.1 \
+    -D CUDA_ARCH_BIN="6.0 6.1 7.0 7.5" -D CUDA_ARCH_PTX="" \
+    -D BUILD_EXAMPLES=ON ..
+
+make -j4
+```
+
+* How to change build's options
+
+```bash
+# Use the following command to list all of CMake build options
+cmake -LA | awk '{if(f)print} /-- Cache values/{f=1}'
+# output example
+WITH_CUDA:BOOL=ON
+```
+
+If you find that the above command line is hard to read, please use cmake-gui . It is the most convinient method. 
+
+* Link python into current miniconda environment
 
 ```bash
 # Python wrapper will be built in the following location
+lib
+└── cv2.so
+# in some case it maybe as follow
+# Please check your environment
 lib/python3/
 └── cv2.cpython-37m-x86_64-linux-gnu.so
+
 # Link into our anaconda environment
-cd /home/gachiemchiep/opt/miniconda2/envs/opencv_3.4.5_cu10/lib/python3.7/site-packages
- ln -s ~/opt/opencv-3.4.5/opencv-3.4.5/build/lib/python3/cv2.cpython-37m-x86_64-linux-gnu.so ${PWD}/cv2.so
-# If you use different environment name or python 2.7
-# Please change the above line
+cd /home/gachiemchiep/miniconda2/envs/opencv-4.1.0_cu10/lib/python2.7/site-packages
+ ln -s ~/opt/opencv-4.1.0/opencv-4.1.0/build/lib/cv2.so ${PWD}/cv2.so
 ```
+
 
 * Checking
 
@@ -102,63 +135,69 @@ import cv2
 print(cv2.getBuildInformation())
 ```
 
-* Output is as follow
+BuildInformation is as follow
 
 ```bash
-General configuration for OpenCV 3.4.5 =====================================
+(base) gachiemchiep@Home:~/miniconda2/envs/opencv-4.1.0_cu10/lib/python2.7/site-packages$ python
+Python 2.7.15 |Anaconda, Inc.| (default, Dec 14 2018, 19:04:19) 
+[GCC 7.3.0] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import cv2
+>>> print(cv2.getBuildInformation())
+
+General configuration for OpenCV 4.1.0 =====================================
   Version control:               unknown
 
   Extra modules:
-    Location (extra):            /home/gachiemchiep/opt/opencv-3.4.5/opencv_contrib-3.4.5/modules
+    Location (extra):            /home/gachiemchiep/opt/opencv-4.1.0/opencv_contrib-4.1.0/modules
     Version control (extra):     unknown
 
   Platform:
-    Timestamp:                   2019-05-22T08:06:12Z
-    Host:                        Linux 4.15.0-48-generic x86_64
+    Timestamp:                   2019-05-23T13:10:13Z
+    Host:                        Linux 4.15.0-50-generic x86_64
     CMake:                       3.10.2
     CMake generator:             Unix Makefiles
     CMake build tool:            /usr/bin/make
-    Configuration:               Release
+    Configuration:               RELEASE
 
   CPU/HW features:
     Baseline:                    SSE SSE2 SSE3
       requested:                 SSE3
     Dispatched code generation:  SSE4_1 SSE4_2 FP16 AVX AVX2 AVX512_SKX
       requested:                 SSE4_1 SSE4_2 AVX FP16 AVX2 AVX512_SKX
-      SSE4_1 (6 files):          + SSSE3 SSE4_1
+      SSE4_1 (15 files):         + SSSE3 SSE4_1
       SSE4_2 (2 files):          + SSSE3 SSE4_1 POPCNT SSE4_2
       FP16 (1 files):            + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 AVX
-      AVX (6 files):             + SSSE3 SSE4_1 POPCNT SSE4_2 AVX
-      AVX2 (12 files):           + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2
-      AVX512_SKX (1 files):      + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2 AVX_512F AVX512_SKX
+      AVX (5 files):             + SSSE3 SSE4_1 POPCNT SSE4_2 AVX
+      AVX2 (29 files):           + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2
+      AVX512_SKX (2 files):      + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2 AVX_512F AVX512_SKX
 
   C/C++:
     Built as dynamic libs?:      YES
-    C++11:                       YES
     C++ Compiler:                /usr/bin/c++  (ver 7.4.0)
-    C++ flags (Release):         -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-narrowing -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -O3 -DNDEBUG  -DNDEBUG
-    C++ flags (Debug):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-narrowing -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
+    C++ flags (Release):         -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -O3 -DNDEBUG  -DNDEBUG
+    C++ flags (Debug):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
     C Compiler:                  /usr/bin/cc
-    C flags (Release):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-narrowing -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -O3 -DNDEBUG  -DNDEBUG
-    C flags (Debug):             -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-narrowing -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
-    Linker flags (Release):      
-    Linker flags (Debug):        
+    C flags (Release):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -O3 -DNDEBUG  -DNDEBUG
+    C flags (Debug):             -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Winit-self -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
+    Linker flags (Release):      -Wl,--gc-sections  
+    Linker flags (Debug):        -Wl,--gc-sections  
     ccache:                      NO
     Precompiled headers:         YES
-    Extra dependencies:          m pthread cudart_static -lpthread dl rt nppc nppial nppicc nppicom nppidei nppif nppig nppim nppist nppisu nppitc npps cublas cufft -L/usr/local/cuda-10.1/lib64 -L/usr/lib/x86_64-linux-gnu
+    Extra dependencies:          m pthread cudart_static -lpthread dl rt nppc nppial nppicc nppicom nppidei nppif nppig nppim nppist nppisu nppitc npps cublas cufft -L/usr/local/cuda-10.1/lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/local/cuda/lib64
     3rdparty dependencies:
 
   OpenCV modules:
-    To be built:                 aruco bgsegm bioinspired calib3d ccalib core cudaarithm cudabgsegm cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev datasets dnn dnn_objdetect dpm face features2d flann freetype fuzzy hdf hfs highgui img_hash imgcodecs imgproc java_bindings_generator line_descriptor ml objdetect optflow phase_unwrapping photo plot python3 python_bindings_generator reg rgbd saliency shape stereo stitching structured_light superres surface_matching text tracking ts video videoio videostab viz xfeatures2d ximgproc xobjdetect xphoto
+    To be built:                 aruco bgsegm bioinspired calib3d ccalib core cudaarithm cudabgsegm cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev datasets dnn dnn_objdetect dpm face features2d flann freetype fuzzy gapi hdf hfs highgui img_hash imgcodecs imgproc line_descriptor ml objdetect optflow phase_unwrapping photo plot python2 quality reg rgbd saliency sfm shape stereo stitching structured_light superres surface_matching text tracking ts video videoio videostab viz xfeatures2d ximgproc xobjdetect xphoto
     Disabled:                    cudacodec world
     Disabled by dependency:      -
-    Unavailable:                 cnn_3dobj cvv java js matlab ovis python2 sfm
-    Applications:                tests perf_tests apps
+    Unavailable:                 cnn_3dobj cvv java js matlab ovis python3
+    Applications:                tests perf_tests examples apps
     Documentation:               NO
-    Non-free algorithms:         NO
+    Non-free algorithms:         YES
 
   GUI: 
-    GTK+:                        YES (ver 3.22.30)
+    GTK+:                        YES (ver 2.24.32)
       GThread :                  YES (ver 2.56.4)
       GtkGlExt:                  NO
     VTK support:                 YES (ver 6.3.0)
@@ -174,23 +213,18 @@ General configuration for OpenCV 3.4.5 =====================================
     HDR:                         YES
     SUNRASTER:                   YES
     PXM:                         YES
+    PFM:                         YES
 
   Video I/O:
-    DC1394:                      YES (ver 2.2.5)
+    DC1394:                      YES (2.2.5)
     FFMPEG:                      YES
-      avcodec:                   YES (ver 57.107.100)
-      avformat:                  YES (ver 57.83.100)
-      avutil:                    YES (ver 55.78.100)
-      swscale:                   YES (ver 4.8.100)
-      avresample:                YES (ver 3.7.0)
-    GStreamer:                   
-      base:                      YES (ver 1.14.1)
-      video:                     YES (ver 1.14.1)
-      app:                       YES (ver 1.14.1)
-      riff:                      YES (ver 1.14.1)
-      pbutils:                   YES (ver 1.14.1)
-    libv4l/libv4l2:              NO
-    v4l/v4l2:                    linux/videodev2.h
+      avcodec:                   YES (57.107.100)
+      avformat:                  YES (57.83.100)
+      avutil:                    YES (55.78.100)
+      swscale:                   YES (4.8.100)
+      avresample:                YES (3.7.0)
+    GStreamer:                   NO
+    v4l/v4l2:                    YES (linux/videodev2.h)
 
   Parallel framework:            pthreads
 
@@ -198,33 +232,33 @@ General configuration for OpenCV 3.4.5 =====================================
 
   Other third-party libraries:
     Intel IPP:                   2019.0.0 Gold [2019.0.0]
-           at:                   /home/gachiemchiep/opt/opencv-3.4.5/opencv-3.4.5/build/3rdparty/ippicv/ippicv_lnx/icv
+           at:                   /home/gachiemchiep/opt/opencv-4.1.0/opencv-4.1.0/build/3rdparty/ippicv/ippicv_lnx/icv
     Intel IPP IW:                sources (2019.0.0)
-              at:                /home/gachiemchiep/opt/opencv-3.4.5/opencv-3.4.5/build/3rdparty/ippicv/ippicv_lnx/iw
+              at:                /home/gachiemchiep/opt/opencv-4.1.0/opencv-4.1.0/build/3rdparty/ippicv/ippicv_lnx/iw
     Lapack:                      YES (/usr/lib/x86_64-linux-gnu/liblapack.so /usr/lib/x86_64-linux-gnu/libcblas.so /usr/lib/x86_64-linux-gnu/libatlas.so)
     Eigen:                       YES (ver 3.3.4)
     Custom HAL:                  NO
     Protobuf:                    build (3.5.1)
 
   NVIDIA CUDA:                   YES (ver 10.1, CUFFT CUBLAS NVCUVID)
-    NVIDIA GPU arch:             70 75
+    NVIDIA GPU arch:             60 61 70 75
     NVIDIA PTX archs:
 
   OpenCL:                        YES (no extra features)
-    Include path:                /home/gachiemchiep/opt/opencv-3.4.5/opencv-3.4.5/3rdparty/include/opencl/1.2
+    Include path:                /home/gachiemchiep/opt/opencv-4.1.0/opencv-4.1.0/3rdparty/include/opencl/1.2
     Link libraries:              Dynamic load
 
-  Python 3:
-    Interpreter:                 /home/gachiemchiep/opt/miniconda2/envs/opencv_3.4.5_cu10/bin/python3 (ver 3.6.7)
-    Libraries:                   /usr/lib/x86_64-linux-gnu/libpython3.6m.so (ver 3.6.7)
-    numpy:                       /home/gachiemchiep/opt/miniconda2/envs/opencv_3.4.5_cu10/lib/python3.7/site-packages/numpy/core/include (ver 1.13.3)
-    install path:                /cv2/python-3.6
+  Python 2:
+    Interpreter:                 (ver 2.7.15)
+    Libraries:                   /usr/lib/x86_64-linux-gnu/libpython2.7.so (ver 2.7.15rc1)
+    numpy:                       /home/gachiemchiep/miniconda2/envs/opencv-4.1.0_cu10/lib/python2.7/site-packages/numpy (ver 1.13.3)
+    install path:                /cv2/python-2.7
 
-  Python (for build):            /home/gachiemchiep/opt/miniconda2/envs/opencv_3.4.5_cu10/bin/python3
+  Python (for build):            /home/gachiemchiep/miniconda2/envs/opencv-4.1.0_cu10/bin/python
 
   Java:                          
     ant:                         NO
-    JNI:                         /usr/lib/jvm/java-8-openjdk-amd64/include /usr/lib/jvm/java-8-openjdk-amd64/include/linux /usr/lib/jvm/java-8-openjdk-amd64/include
+    JNI:                         /usr/lib/jvm/java-8-oracle/include /usr/lib/jvm/java-8-oracle/include/linux /usr/lib/jvm/java-8-oracle/include
     Java wrappers:               NO
     Java tests:                  NO
 
@@ -232,6 +266,33 @@ General configuration for OpenCV 3.4.5 =====================================
 -----------------------------------------------------------------
 
 
+```
+
+## List of bugs
+
+There are some bugs that is occured during the compiling
+
+* fatal error: nvcuvid.h: No such file or directory
+
+```bash
+# Bug detail
+In file included from /home/gachiemchiep/opt/opencv-4.1.0/opencv-4.1.0/build/modules/cudacodec/opencv_cudacodec_pch_dephelp.cxx:1:0:
+/home/gachiemchiep/opt/opencv-4.1.0/opencv_contrib-4.1.0/modules/cudacodec/src/precomp.hpp:62:18: fatal error: nvcuvid.h: No such file or directory
+         #include <nvcuvid.h>
+                  ^~~~~~~~~~~
+# Solution : disable cudacodec compiling
+-D BUILD_opencv_cudacodec=OFF 
+# Detail: https://github.com/opencv/opencv_contrib/issues/1786
+```
+
+* messing between python2 and python3 
+
+```bash
+# cmake keep using python2 inside /usr/bin/python as compiler instead of anaconda python
+
+# Solution : use the following options
+-D PYTHON_DEFAULT_EXECUTABLE=$(which python)
+# Detail : https://stackoverflow.com/questions/37070304/how-to-build-opencv-for-python3-when-both-python2-and-python3-are-installed
 ```
 
 End
