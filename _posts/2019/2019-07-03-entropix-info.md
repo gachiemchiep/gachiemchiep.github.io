@@ -50,19 +50,19 @@ With nothing but two low-cost commodity image sensors and a GPU-powered cloud, o
 
 Their technology is summed up i the following image
 
-![technology](../../_site/assets/images/2019/entropix_technology.png)
+![technology](/assets/images/2019/entropix_technology.png)
 
 Please be note that they **DO NOT BUILD AND SELL camera**. They offer machine learning solution which use images taken from color sensor and panchromatic sensor to create very high resolution image. 
 
 Based on the advertising, it can go up to 9x the resolution. So theorically, even with very low resolution image, a very high resolution image will be created. As in the following image, even with dual HD camera we can create a 4k image. 
 
-![technology](../../_site/assets/images/2019/entropix_technology_2.png)
+![technology](/assets/images/2019/entropix_technology_2.png)
 
 ## Entropix's potential
 
 In 2016 and 2017 they got several start-up prices.
 
-![technology](../../_site/assets/images/2019/entropix_technology_3.png)
+![technology](/assets/images/2019/entropix_technology_3.png)
 
 Despite that, i didn't found anymore archivement they got from 2018. Maybe the idea is not useful anymore.
 
@@ -70,7 +70,7 @@ Despite that, i didn't found anymore archivement they got from 2018. Maybe the i
 
 The technology is a type of super resolution application. It should take tons of work to prepare the training data
 
-![technology](../../_site/assets/images/2019/entropix_technology_4.png)
+![technology](/assets/images/2019/entropix_technology_4.png)
 
 Their business approach is very bad. 
 
