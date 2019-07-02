@@ -12,7 +12,7 @@ url                      : "https://gachiemchiep.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : gachiemchiep/gachiemchiep.github.io # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/avatar2.jpg" 
+logo                     : "/assets/images/avatar3.jpg" 
 masthead_title           : "vugia.truong's blog"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -95,7 +95,7 @@ analytics:
 # Site Author
 author:
   name             : "vugia.truong"
-  avatar           : "/assets/images/avatar2.jpg" 
+  avatar           : "/assets/images/avatar3.jpg" 
   bio              : "Software engineer."
   location         : "Kyoto, Japan"
   email            :
