@@ -97,6 +97,36 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 make -j4
 ```
 
+* Or compile with both python2 and python 3 
+
+```bash
+mkdir build
+cd build
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+    -D CMAKE_INSTALL_PREFIX=/usr/local \
+    -D OPENCV_EXTRA_MODULES_PATH=~/opt/opencv/opencv_contrib-4.1.0/modules \
+    -D OPENCV_ENABLE_NONFREE=ON \
+    -D BUILD_EXAMPLES=ON ..\
+    -D BUILD_NEW_PYTHON_SUPPORT=ON \
+    -D INSTALL_PYTHON_EXAMPLES=ON \
+    -D OPENCV_FORCE_PYTHON_LIBS=ON \
+    -D PYTHON2_EXECUTABLE=~/miniconda3/envs/py2/bin/python \
+    -D PYTHON2_LIBRARY=~/miniconda3/envs/py2/lib/libpython2.7.so \
+    -D PYTHON2_INCLUDE_DIRS=~/miniconda3/envs/py2/include \
+    -D PYTHON2_NUMPY_INCLUDE_DIRS=~/miniconda3/envs/py2/lib/python2.7/site-packages/numpy \
+    -D PYTHON3_EXECUTABLE=~/miniconda3/envs/py3/bin/python \
+    -D PYTHON3_LIBRARY=~/miniconda3/envs/py3/lib/libpython3.7m.so \
+    -D PYTHON3_INCLUDE_DIRS=~/miniconda3/envs/py3/include \
+    -D PYTHON3_NUMPY_INCLUDE_DIRS=~/miniconda3/envs/py3/lib/python3.7/site-packages/numpy \
+    -D WITH_CUDA=ON \
+    -D BUILD_opencv_cudacodec=OFF \
+    -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.1 \
+    -D CUDA_ARCH_BIN="6.0 6.1 7.0 7.5" -D CUDA_ARCH_PTX="" \
+    -D BUILD_EXAMPLES=ON ..
+
+make -j4
+```
+
 * How to change build's options
 
 ```bash
