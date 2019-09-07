@@ -102,6 +102,10 @@ make -j4
 ```bash
 mkdir build
 cd build
+# py2 and py3 are python environments corresponding for python 2.7 and python 3.7
+# you can create py2 and py3 by the following commands
+# conda create --name py2 python=2.7
+# conda create --name py3 python=3.7
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D CMAKE_INSTALL_PREFIX=/usr/local \
     -D OPENCV_EXTRA_MODULES_PATH=~/opt/opencv/opencv_contrib-4.1.0/modules \
@@ -125,6 +129,10 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D BUILD_EXAMPLES=ON ..
 
 make -j4
+# The output python 2
+# build/lib/cv2.so
+# The output python 3
+# build/lib/python3/cv2.cpython-37m-x86_64-linux-gnu.so
 ```
 
 * How to change build's options
