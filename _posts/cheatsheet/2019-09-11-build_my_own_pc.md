@@ -49,9 +49,9 @@ Bước đầu tiên, bạn phải xác định là mình muốn chi bao nhiêu 
 
 Tôi gọi 4 mức phân cấp ngân sách trên là : nghèo, vừa phải, giàu, rất giàu. 
 
-Một điều cần chú ý ở đây. Các nhà sản xuất linh kiện (main, chip, case, ...) hiểu rất rõ sự phân cấp trong túi tiền của người tiêu dùng. Cho nên các sản phẩm của họ cũng chia thành 4 phân khúc : hạ, trung, thượng, doanh nghiệp (enterprise). 
+Một điều cần chú ý ở đây. Các nhà sản xuất linh kiện (main, chip, case, ...) hiểu rất rõ sự phân cấp trong túi tiền của người tiêu dùng. Cho nên các sản phẩm của họ cũng chia thành 4 phân khúc : thấp, vừa, cao cấp, rất cao cấp. 
 
-Sau khi xác định túi tiền bản thân, bạn sẽ hiểu được bạn nằm trong phân khúc khách hành nào. Từ đây bạn sẽ chọn lịnh kiện (part) tương ứng với phân khúc đó. 
+Sau khi xác định túi tiền bản thân, bạn sẽ hiểu được bạn nằm trong phân khúc khách hành nào. Từ đây bạn sẽ chọn linh kiện (part) tương ứng với phân khúc đó. 
 
 ## 2. Xác định rõ nhu cầu bản thân
 
@@ -99,7 +99,7 @@ Các bộ phận khác, có cũng được không có cũng chẳng sao
 
 Main (Motherboard) là gì ? Main (Motherboard) là thiết bị để kết nối (connect) tất cả các thiết bị với nhau. 
 
-Chỉ cần gõ Motherboard trên google, bạn sẽ có hằng hà vô số giải thích từ dễ tới khó và bạn không cần thiết phải quan tâm những thứ đó. Bạn chỉ cần hiểu 2 thứ sau
+Chỉ cần gõ Motherboard trên google, bạn sẽ có hằng hà vô số giải thích từ dễ tới khó. Và bạn không cần thiết phải quan tâm những thứ đó. Bạn chỉ cần hiểu 2 thứ sau
 
 2. Chipset : quyết định số lượng thiết bị có thể kết nối và tốc độ của các kết nối đấy.
 1. Kích cỡ của main (Form factor)
@@ -108,25 +108,27 @@ Chú ý: có hai hãng sản xuất Chip lớn nhất là Intel, AMD. khi bạn 
 
 ### 4.1 Chọn Chipset
 
-Trong 3 yếu tố trên thì Chipset là yếu tố quan trọng nhất. Một mainboard có chipset xịn thì sẽ gắn được nhiều thiết bị hơn, băng thông truyền tải dữ liệu rộng hơn. Một mainboard có chipset xịn thì gắn được ít thiết bị hơn, băng thông  truyền tải dữ liệu hẹp hơn. Trong một số trường hợp khi thiết bị cuối của bạn (CPU, RAM, ...) quá xịn, băng thông sẽ bị bóp lại. Dẫn đến cảnh, mua đồ xịn mà chạy như rùa. 
+Chipset là yếu tố quan trọng nhất. Một mainboard có chipset xịn thì sẽ gắn được nhiều thiết bị hơn, băng thông truyền tải dữ liệu rộng hơn. Một mainboard có chipset dởm thì gắn được ít thiết bị hơn, băng thông  truyền tải dữ liệu hẹp hơn. Trong một số trường hợp khi thiết bị cuối của bạn (CPU, RAM, ...) quá xịn nhưng main dởm thì băng thông sẽ bị bóp lại. Dẫn đến cảnh, mua đồ xịn mà chạy như rùa. 
 
-Các chipset cũng được chia thành các rank khác nhau. Tùy theo túi tiền mà chúng ta nên chọn một chipset phù hợp. 
+Các chipset cũng được chia thành các rank khác nhau. Tùy theo túi tiền mà chúng ta nên chọn một chipset phù hợp. Sau đây là danh sách các chipset của Intel và AMD
 
-**Intel**
-
-1. Các chipset bắt đầu bằng chữ H: H110, H170, H270, H310, H370 . Đây là dòng dành cho Home user, người dùng ít tiền. 
-2. Các chipset bắt đầu bằng chữ B: B150, B250, B360, H365 . Đây là dòng dành cho Business user, người dùng có túi tiền vừa phải. 
-2. Các chipset bắt đầu bằng chữ cái khác như Z, Q như: Z270, Z370. Đây là dòng cao cấp, dành cho người dùng lắm tiền nhiều của. 
+**Intel** : rank thấp dần từ trên xuống
 
 ![Intel Chipset](https://cdn.wccftech.com/wp-content/uploads/2018/05/Intel-Chipset-Roadmap.png)
 
-**AMD**
+1. Các chipset bắt đầu bằng chữ H: H110, H170, H270, H310, H370 . Đây là dòng dành cho Home user, người dùng ít tiền. 
+2. Các chipset bắt đầu bằng chữ B: B150, B250, B360, H365 . Đây là dòng dành cho Business user, người dùng có túi tiền vừa phải. 
+3. Các chipset bắt đầu bằng chữ cái khác như Z, Q như: Z270, Z370. Đây là dòng cao cấp, dành cho người dùng lắm tiền nhiều của. 
+
+
+**AMD** : rank thấp dần từ trên xuống
+
+![AMD Chipset](https://cdn.wccftech.com/wp-content/uploads/2018/05/AMD-Chipset-Roadmap-2018.png)
 
 1. Các chipset bắt đầu bằng chữ A: A320 . Đây là dòng dành cho Home user, người dùng ít tiền. 
 2. Các chipset bắt đầu bằng chữ B: B350, B450 . Đây là dòng dành cho Business user, người dùng có túi tiền vừa phải. 
 3. Các chipset bắt đầu bằng chữ X như: X370, X470, X570. Đây là dòng cao cấp, dành cho người dùng lắm tiền nhiều của. 
 
-![AMD Chipset](https://cdn.wccftech.com/wp-content/uploads/2018/05/AMD-Chipset-Roadmap-2018.png)
 
 Tùy theo nhu cầu công việc mà tôi phân như sau: 
 
@@ -140,10 +142,14 @@ Main (Motherboard) có các kích cỡ như hình dưới.
 
 ![motherboard form factor](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Motherboards_form_factors.svg/719px-Motherboards_form_factors.svg.png)
 
+Kích cỡ của main càng lớn thì số lượng thiết bị có thể gắn trên main càng nhiều. 
+
+![motherboard form factor image](https://upload.wikimedia.org/wikipedia/commons/1/11/VIA_Mini-ITX_Form_Factor_Comparison.jpg)
+
 Tùy theo nhu cầu công việc mà tôi phân như sau: 
 
 1. Làm văn phòng, xem phim, lướt web : Mini-ITX 
-2. Chơi game, lập trình' Micro-ATX 
+2. Chơi game, lập trình: Micro-ATX 
 3. CAD, dựng phim, Compiling, DeepLearning : ATX hoặc to hơn 
 
 ## 5. Chọn vỏ máy tính (PC case)
@@ -152,9 +158,32 @@ Sau khi quyết định kích cỡ Motherboard thì chúng ta bắt đầu chọ
 
 ## 6. Chọn chip (CPU)
 
+Các yếu tố cần lưu ý khi chọn chip
+
+1. Socket
+2. Số Core/Số luồng
+
+Sau khi bạn chọn được main thì bạn sẽ có trong tay các  .... 
+
+Chip cũng được chia làm các hạng khác nhau. 
+
+![amd vs intel](https://www.legitreviews.com/wp-content/uploads/2018/01/amd-ryzen-pricing.png)
+
+![intel](https://www.extremetech.com/wp-content/uploads/2018/07/Intel-Roadmap-1-Large.jpg)
+
+![amd](https://www.legitreviews.com/wp-content/uploads/2018/01/ryzen-desktop-processor-roadmap.png)
+
+Nên chọn mua các con CPU không có hậu tố đằng sau. Vừa tiết kiệm điện vừa đỡ nóng. 
+Tuyệt đối không mua các con có hậu tố K: vừa nóng, vừa hao điện. 
 
 ## 7. Chọn RAM (memory)
+
+Chọn Ram có chuẩn tương ứng với main. Ví dụ main hỗ trợ DDR4 thì chọn DDR4 ram
+
 ## 8. Chọn ổ cứng 
+
+Chọn đại một con SSD hay HDD nào cũng được. 
+
 ## 10. Chọn nguồn (Power supply unit :PSU)
 
 # Case study 
