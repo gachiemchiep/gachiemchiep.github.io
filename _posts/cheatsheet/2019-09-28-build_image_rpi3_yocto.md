@@ -21,11 +21,10 @@ Yocto is a great tool to build linux-image for device.
 In this post i will summarize the procedure needed to build linux-image 
 for **raspberry pi B+** using yocto.
 
-The following 3 types of disk image will be built:
+The following 2 types of disk image will be built:
 
 1. CUI : core-image-basic
 2. GUI X11 : core-image-sato
-3. GUI Wayland/Weston (desktop-shell): core-image-weston
 
 Addition software for the image
 
@@ -159,6 +158,13 @@ CORE_IMAGE_EXTRA_INSTALL_append = " 96boards-tools "
 
 # Fix bug: some package is licensed so it won't be built by default
 LICENSE_FLAGS_WHITELIST = "commercial"
+
+# Add new user : pi/raspberry
+# change password of root into root
+EXTRA_USERS_PARAMS = " useradd pi; \
+                       usermod  -p 'raspberry' pi; \
+                       usermod  -a -G sudo pi; \
+                       usermod -P root root; "
 ```
 
 * For intelrealsense: create **conf/auto.conf** with the content as followed
@@ -183,19 +189,46 @@ bitake core-image-base
 bitbake core-image-sato
 
 # GUI Wayland/Weston
-bitbake core-image-wayland
+# bitbake core-image-wayland
 ```
 
 **Note:** The build will take hours to finish.
 
 ## 3. Results
 
-* CUI image
+The following image will be created
 
-* GUI X11 image
+```bash
+# CUI image
+tmp/deploy/images/raspberrypi3-64/core-image-base-raspberrypi3-64-20190928135901.rootfs.rpi-sdimg
 
-* GUI Wayland/Weston
+# GUI X11 image
+tmp/deploy/images/raspberrypi3-64/core-image-sato-raspberrypi3-64-20190928134950.rootfs.rpi-sdimg
 
+```
+
+We then use dd command to wride sdimg file into sd card
+
+```bash
+sudo dd if=core-image-base-raspberrypi3-64-20190928135901.rootfs.rpi-sdimg of=/dev/sdX bs=4M status=progress
+sync
+```
+
+### 3.1 CUI image result
+
+It can boot into CUI
+
+![CUI image 1](/assets/images/yocto/rpi_64_cui_1.jpg)
+
+Opencv and pyrealsense was installed correctly
+
+![CUI image 2](/assets/images/yocto/rpi_64_cui_2.jpg)
+
+### 3.2 GUI X11 image
+
+It can boot into GUI
+
+![GUI image 1](/assets/images/yocto/rpi_64_gui_1.jpg)
 
 # References
 
@@ -206,6 +239,5 @@ bitbake core-image-wayland
 5. [core-image-sato (GUI, X11)](http://mickey-happygolucky.hatenablog.com/entry/2017/02/08/013946)
 6. [core-image-weston (GUI, Wayland/Weston(desktop-shell))](http://mickey-happygolucky.hatenablog.com/entry/2017/05/31/011009)
 
-編集リクエスト
 
 End
