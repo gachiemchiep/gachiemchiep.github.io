@@ -5,7 +5,6 @@ categories:
   - cheatsheet
 tags: 
   - yocto
-  - TODO
 published: true
 comments: true
 toc: true
