@@ -142,13 +142,13 @@ From client Machinerun vncclient:
 
 Select address as {IP_ADDRESS}:{DISPLAY_NUM} (192.168.11.22:2)
 
-![aaa](assets/images/opengl/01.png)
+![aaa](/assets/images/opengl/01.png)
 
 Note: for convinient, the password was set be as same as user password
 
 After login, we have the following :
 
-![bbb](assets/images/opengl/02.png)
+![bbb](/assets/images/opengl/02.png)
 
 From client Machine, open another terminal. Then use the following commands to run opengl applications.
 
@@ -163,7 +163,7 @@ realsense-viewer
 glxgears
 ```
 
-![ccc](assets/images/opengl/03.png)
+![ccc](/assets/images/opengl/03.png)
 
 ## References
 
