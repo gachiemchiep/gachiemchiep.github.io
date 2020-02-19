@@ -35,4 +35,6 @@ https://en.wikipedia.org/wiki/Similarity_learning
    [http://researchers.lille.inria.fr/abellet/talks/metric_learning_tutorial_CIL.pdf](metrics learning tutorial)
    -> a lot of maths
 
+    [http://webia.lip6.fr/~cord/pdfs/courses/2019RIVCourse2.pdf](aaa)
+    -> good one too
 
