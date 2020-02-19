@@ -38,3 +38,27 @@ https://en.wikipedia.org/wiki/Similarity_learning
     [http://webia.lip6.fr/~cord/pdfs/courses/2019RIVCourse2.pdf](aaa)
     -> good one too
 
+# Personally thinking
+
+## Can we use object proposal algorithm (such as BING, DeepBox) to perform board segmentation 
+-> huhm, this is nonsense anyway
+
+## One shot learning for semantic segmentation or even object detection
+
+Read the slide here : https://drive.google.com/drive/folders/1sTjR75hgDDML2owb9erRdnKVLRvuluo4
+https://github.com/timy90022/One-Shot-Object-Detection
+
+one-shot learning : 
+  Matching Networks
+    Input: 
+      a. anchor : base image
+      b. other test image
+  One-Shot : object detection 
+    Output : which image is match
+
+  One-Shot Instance Segmentation
+    Given a query image and a reference image showing an object of a novel category, we seek to detect and segment all instances of the corresponding category (in the image above ‘person’ on the left, ‘car’ on the right). 
+    https://github.com/bethgelab/siamese-mask-rcnn : 2018
+    https://github.com/timy90022/One-Shot-Object-Detection : 2019
+    
+    -> very promising , but it's hard to implemented
