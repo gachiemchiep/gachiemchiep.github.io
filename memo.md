@@ -74,7 +74,11 @@ Found the following 2 promissing approach
    
    
 Let's compare the 1. and 2.
-   
+1. DML : only learn the baseline
+2. Re-write the entire network architecture
+
+-> We will use 2 for this task
+
 apple has very great turi examples at: https://apple.github.io/turicreate/docs/userguide/one_shot_object_detection/
   -> if we need to re-train an one-shot-object-detection then this is a good resource
   -> don't know which algorithm are they using 
