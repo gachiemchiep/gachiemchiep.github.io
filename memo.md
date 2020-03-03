@@ -160,3 +160,51 @@ Next, I’ll try to break the few-shot methods to different families. Although t
 Following that, came meta-learning methods. These are models which are conditioned on the current task, so a different classifier is used as a function of the support-set. The idea is to find model hyper-parameters and parameters such that it will be easy to adapt to a new task without over-fitting to the few shots available.
 In parallel, data augmentation methods are also very popular. The idea is to learn data augmentation so we can generate more examples out of the few examples available.
 Finally, semantics-based methods are on the rise. It is inspired by zero-shot learning where classification is done based solely on the category name, textual descriptions, or attributes. Those extra semantic ques can also be of help when visual examples are scarce.
+
+
+# Few Shot Semantic Segmentation Papers 
+
+
+One-Shot Learning for Semantic Segmentation	
+  -> 2017
+
+[https://github.com/xiaomengyc/Few-Shot-Semantic-Segmentation-Papers](https://github.com/xiaomengyc/Few-Shot-Semantic-Segmentation-Papers)
+
+
+# Incremental learning (continuous learning)
+
+[https://github.com/xialeiliu/Awesome-Incremental-Learning](https://github.com/xialeiliu/Awesome-Incremental-Learning)
+[https://wiki.continualai.org/](https://wiki.continualai.org/)
+  -> wiki, huhm
+
+  Continual Learning (CL) is built on the idea of learning continuously and adaptively about the external world and enabling the autonomous incremental development of ever more complex skills and knowledge.
+
+  In the context of Machine Learning it means being able to smoothly update the prediction model to take into account different tasks and data distributions but still being able to re-use and retain useful knowledge and skills during time.
+
+# A Primer in BERTology: What we know about how BERT works
+
+https://arxiv.org/pdf/2002.12327.pdf
+
+
+# Camera calibration
+
+[matlab camera calibration](https://www.mathworks.com/help/vision/ug/camera-calibration.html)
+
+  extrinsic : world points -> camera coordinates : extrinsics parameters
+  intrinsic : camera coordinates -> image plane : intrinsics parameters
+  ![image](https://www.mathworks.com/help/vision/ug/calibration_cameramodel_coords.png)
+
+[matlab one camera calibration](https://www.mathworks.com/help/vision/ug/single-camera-calibrator-app.html)
+
+  reason : re-calculate the extrinsics, intrinsic
+  How to evaluate : 
+    re-projector error: +/- ??? (in pixel), lower = better
+    examining camera extrinsics : see matlab page for detail
+    View Undistorted Image      : see matlab page for detail
+
+
+[opencv camera calibration and 3d reconstruction](https://docs.opencv.org/2.4/modules/calib3d/doc/camera_calibration_and_3d_reconstruction.html)
+
+[Camera calibration With OpenCV cpp](https://docs.opencv.org/2.4/doc/tutorials/calib3d/camera_calibration/camera_calibration.html)
+
+[camera calibration with opencv python](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_calib3d/py_calibration/py_calibration.html)
