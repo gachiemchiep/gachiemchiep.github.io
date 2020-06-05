@@ -6,7 +6,7 @@ categories:
 comments: true
 toc: true
 support: true
-published: false
+published: true
 order: 9
 author: vugia.truong
 ---
