@@ -1,6 +1,6 @@
 ---
 title: "Book : Deep Learning Engineering"
-excerpt: "Personal note when reading "Deep Learning Engineering"."
+excerpt: "Personal note when reading Deep Learning Engineering."
 categories: 
   - Machine Learning
 tags: 

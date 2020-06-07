@@ -42,3 +42,5 @@ bitbake -g your-image-name
 https://git.openembedded.org/meta-python2
 ```
 
+
+
