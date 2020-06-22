@@ -3,12 +3,11 @@ title: "Deep metrics learning summary"
 excerpt: "Personal note when about deep metrics learning."
 categories: 
   - Machine Learning
-tags: 
-  - Deep metric learning
 comments: true
 toc: true
 support: true
 published: true
+classes: wide
 order: 9
 author: vugia.truong
 ---

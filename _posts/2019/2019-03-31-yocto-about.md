@@ -2,7 +2,7 @@
 title: "A quick glance at yocto"
 excerpt: "yocto summary."
 categories: 
-  - tutorial
+  - cheatsheet
 tags: 
   - yocto
 published: true

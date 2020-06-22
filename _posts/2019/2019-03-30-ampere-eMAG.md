@@ -4,8 +4,6 @@ excerpt: "Quick glance at Ampere eMAG processer."
 published: true
 categories: 
   - news
-tags: 
-  - arm
 comments: true
 toc: true
 support: true

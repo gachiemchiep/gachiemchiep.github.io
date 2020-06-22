@@ -2,10 +2,9 @@
 title: "Compile PCL + OpenCV + librealsense2"
 excerpt: "Compile PCL + OpenCV + librealsense2 from source."
 categories:
-  - vision
+  - Machine Learning
 tags:
   - tutorial
-  - pcl
 published: true
 comments: true
 toc: true

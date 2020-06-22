@@ -4,7 +4,7 @@ excerpt: "Personal note when reading Deep Learning Engineering."
 categories: 
   - Machine Learning
 tags: 
-  - book
+  - note
 comments: true
 toc: true
 support: true

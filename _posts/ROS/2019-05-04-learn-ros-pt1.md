@@ -2,9 +2,9 @@
 title: "Learning ROS. Part 1"
 excerpt: "Some quick notes when learning ROS."
 categories: 
-  - tutorial
+  - ROS
 tags: 
-  - ros
+  - tutorial
 comments: true
 published: true
 toc: true
@@ -16,7 +16,7 @@ author: vugia.truong
 <!-- TOC -->
 
 - [1. A Gentle introduction to ROS](#1-a-gentle-introduction-to-ros)
-  - [1.1. Why ROS is needed ?](#11-why-ros-is-needed)
+  - [1.1. Why ROS is needed ?](#11-why-ros-is-needed-)
   - [1.2. Install ROS](#12-install-ros)
   - [1.3. ROS's general concepts](#13-ross-general-concepts)
   - [1.4. Reference](#14-reference)

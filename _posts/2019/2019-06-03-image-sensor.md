@@ -2,9 +2,9 @@
 title: "VLSIx 2016: Image Sensors"
 excerpt: "VLSIx 2016: Image Sensors by Makoto Ikeda."
 categories: 
-  - vision
+  - news
 tags: 
-  - sensor
+  - image_sensor
 published: true
 comments: true
 toc: true

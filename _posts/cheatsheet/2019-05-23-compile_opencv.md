@@ -2,7 +2,7 @@
 title: "Compile OpenCV from source for Ubuntu with Cuda, Atlas"
 excerpt: "Compile OpenCV 4.1.0 from source for Ubuntu 18.04 with Cuda 10.1, Atlas."
 categories:
-  - vision
+  - Machine Learning
 tags:
   - tutorial
   - opencv
@@ -10,6 +10,7 @@ published: true
 comments: true
 toc: true
 support: true
+classes: wide
 order: 9
 author: vugia.truong
 ---

@@ -2,7 +2,7 @@
 title: "Polarization imaging resource"
 excerpt: "Some technical notes i found on the internet about Polarization imaging."
 categories: 
-  - vision
+  - news
 tags: 
   - image_sensor
   - polarization

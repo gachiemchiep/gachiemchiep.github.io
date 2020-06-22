@@ -3,8 +3,6 @@ title: "About Adasky"
 excerpt: "Some information i found when reading about a start-up name Adasky."
 categories: 
   - news
-tags: 
-  - adasky
 published: true
 comments: true
 toc: true

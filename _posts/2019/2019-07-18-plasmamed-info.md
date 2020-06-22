@@ -3,8 +3,6 @@ title: "About Plasma Med"
 excerpt: "Some information notes i found when reading about a start-up name PlasmaMed."
 categories: 
   - news
-tags: 
-  - plasmamed
 published: true
 comments: true
 toc: true
