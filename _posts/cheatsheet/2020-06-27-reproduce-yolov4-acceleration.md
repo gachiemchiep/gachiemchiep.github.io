@@ -33,6 +33,8 @@ Detail steps to re-produce the inference speed of Yolov4 reported at https://git
 
 Before going further, please follow steps at : [tensorflow install gpu](https://www.tensorflow.org/install/gpu) to install Cuda, cuDNN and tensorRT. All commands are using apt-get so it'll save a lot of time and effort.
 
+workspace for this post is at [https://github.com/gachiemchiep/source_code/tree/master/yolov4](https://github.com/gachiemchiep/source_code/tree/master/yolov4)
+
 ## tkDNN
 
 ### Prepare
