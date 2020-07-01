@@ -2,7 +2,7 @@
 title: "LMI emulator"
 excerpt: "Accelerate Your Vision Solutions with Virtualization."
 categories: 
-  - vision
+  - news
 comments: true
 toc: true
 support: true

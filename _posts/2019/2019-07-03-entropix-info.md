@@ -3,8 +3,6 @@ title: "About Entropix"
 excerpt: "Some information notes i found when reading about a start-up name Entropix."
 categories: 
   - news
-tags: 
-  - entropix
 published: true
 comments: true
 toc: true

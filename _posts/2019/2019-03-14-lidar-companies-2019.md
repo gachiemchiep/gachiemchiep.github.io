@@ -3,9 +3,7 @@ published: true
 title: Lidar startup 2019
 date: '2019-03-13'
 categories: 
-  - vision
-tags: 
-  - lidar
+  - news
 subtitle: Danh sách các công ty phát triển công nghệ Lidar đáng chú ý.
 ---
 

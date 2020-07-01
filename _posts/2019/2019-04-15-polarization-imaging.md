@@ -2,7 +2,7 @@
 title: "Polarization imaging"
 excerpt: "Some notes about Polarization imaging."
 categories: 
-  - vision
+  - cheatsheet
 tags: 
   - image_sensor
   - polarization
@@ -16,7 +16,7 @@ author: vugia.truong
 
 - [Summary](#summary)
   - [Challenges in inspection tasks](#challenges-in-inspection-tasks)
-    - [**Why these inspection tasks are challenged ?**](#why-these-inspection-tasks-are-challenged)
+    - [**Why these inspection tasks are challenged ?**](#why-these-inspection-tasks-are-challenged-)
     - [**What could go wrong here?**.](#what-could-go-wrong-here)
     - [**How can we solve this problem?**.](#how-can-we-solve-this-problem)
   - [Polarization Imaging](#polarization-imaging)

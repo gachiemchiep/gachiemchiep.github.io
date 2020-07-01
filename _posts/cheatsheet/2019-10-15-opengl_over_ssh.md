@@ -4,7 +4,6 @@ excerpt: "How to run opengl application over ssh using virtualgl."
 categories: 
   - cheatsheet
 tags: 
-  - opengl
   - ssh
 published: true
 comments: true

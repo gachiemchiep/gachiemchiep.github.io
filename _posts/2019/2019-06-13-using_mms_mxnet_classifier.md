@@ -2,8 +2,9 @@
 title: "Deploying image classification (mxnet) using Mxnet Model Server (mms)"
 excerpt: "How to deploying image classification (mxnet) using Mxnet Model Server (mms)."
 categories:
-  - tutorial
+  - Machine Learning
 tags:
+  - tutorial
   - mms
 published: true
 comments: true

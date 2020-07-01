@@ -2,10 +2,9 @@
 title: "Compile PCL + OpenCV + librealsense2"
 excerpt: "Compile PCL + OpenCV + librealsense2 from source."
 categories:
-  - vision
+  - cheatsheet
 tags:
-  - tutorial
-  - pcl
+  - opencv
 published: true
 comments: true
 toc: true

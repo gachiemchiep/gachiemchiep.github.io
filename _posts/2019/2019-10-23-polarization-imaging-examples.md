@@ -2,8 +2,9 @@
 title: "Examples of polarization imaging"
 excerpt: "Some example of plarization imaging."
 categories: 
-  - vision
+  - cheatsheet
 tags: 
+  - image_sensor
   - polarization
 published: true
 comments: true

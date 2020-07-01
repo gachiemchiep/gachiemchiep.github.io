@@ -2,13 +2,12 @@
 title: "Distance metric learning"
 excerpt: "Note about distance metric learning."
 categories: 
-  - vision
-tags: 
-  - machine learning
+  - Machine Learning
 published: false
 comments: true
 toc: true
 support: true
+classes: wide
 order: 9
 author: vugia.truong
 ---

@@ -2,9 +2,9 @@
 title: "Learning ROS. Part 2"
 excerpt: "Some quick notes when learning ROS."
 categories: 
-  - tutorial
+  - ROS
 tags: 
-  - ros
+  - tutorial
 comments: true
 published: true
 toc: true
