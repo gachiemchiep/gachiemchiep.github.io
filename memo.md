@@ -208,3 +208,39 @@ https://arxiv.org/pdf/2002.12327.pdf
 [Camera calibration With OpenCV cpp](https://docs.opencv.org/2.4/doc/tutorials/calib3d/camera_calibration/camera_calibration.html)
 
 [camera calibration with opencv python](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_calib3d/py_calibration/py_calibration.html)
+
+# Texture recognition dataset
+
+[A survey of Recent Advances in Texture Representation](https://www.groundai.com/project/a-survey-of-recent-advances-in-texture-representation/1)
+  -> good summary
+
+
+[Jia Xue](http://jiaxueweb.com/)
+  -> [pytorch material classification](https://github.com/jiaxue1993/pytorch-material-classification)
+    -> a lot of dataset and code
+
+    -> GTOS :         Ground Terrain in Outdoor Scenes
+            -> 40 classes, 750 samples each
+            -> https://github.com/jiaxue1993/pytorch-material-classification
+            -> format is a little weird
+      GTOS_MOBILE     Ground Terrain in Outdoor Scenes
+          -> use this
+      DTD             Describable Textures Dataset
+            -> 47 classes, 120 sample each
+            -> https://www.robots.ox.ac.uk/~vgg/data/dtd/
+      MINC-2500       Material Recognition in the Wild with the Materials in Context 
+              -> 23 material classes, 2500 samples each
+              -> http://opensurfaces.cs.cornell.edu/publications/minc/
+      FMD/LFMD        : Light-Field Material Database
+                      -> not 2d data -> ignore
+
+Other dataset : not usefull
+Other dataset such as [Textures Classification dataset](https://github.com/abin24/Textures-Dataset) is Mere ...
+[VisTek](https://vismod.media.mit.edu/vismod/imagery/VisionTexture/distribution.html) : small, no longer maintain
+[alot texture classification dataset](http://color.univ-lille.fr/datasets/alot) : 
+[Kylberg Texture Dataset v. 1.0](http://www.cb.uu.se/~gustaf/texture/KylbergTextureDocumentation-1.0.pdf) : gray scale image
+
+
+[texture synthesizability](http://people.ee.ethz.ch/~daid/synthesizability/)
+  -> texture画像生成方法、画像生成した後に学習隅のモデルで良し悪しを判断
+  -＞　約に立たないが、上記のリンクの最後項目にtexture datasetの一覧について説明があります
